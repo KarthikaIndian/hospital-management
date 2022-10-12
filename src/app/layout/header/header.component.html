@@ -1,0 +1,52 @@
+
+    <div id="layout-wrapper">
+        <nav class="navbar navbar-expand-lg mat-elevation-z5 bg-nav ">
+         <div class="container-fluid">
+       
+           <img src="/assets/image/ebrain logo (1).png" alt="Ebrain Logo" class="image">
+       
+       
+       
+           <button mat-button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#employee">
+            <mat-icon class="fs-4 text-dark">menu</mat-icon>
+           </button>
+       
+           <div class="collapse navbar-collapse" id="employee">
+             <span class="example-spacer"></span>
+             <ul class="navbar-nav" *ngFor="let item of menuItems">
+       
+               <li class="nav-item">
+       
+                 <button mat-button class=" text-dark" dropdown-toggle
+                   [matMenuTriggerFor]="construction" >{{item.label}}
+                   <mat-menu #construction="matMenu">
+                     <span *ngFor="let itemsub of item.subItems">
+                       <button mat-menu-item [routerLink]="itemsub.link" >{{itemsub.label}}</button></span>
+                   </mat-menu>
+                 </button>
+               </li>
+             </ul>
+             <!-- <button mat-button routerLink="/dashboard/invoice" class="text-white me-5" >Invoice</button> -->
+             <!-- <button mat-icon-button class="example-icon text-white loginName me-3">{{obj|titlecase}} </button> -->
+       
+             <button mat-icon-button class="example-icon favorite-icon ms-3" aria-label="Example icon-button with heart icon">
+               <mat-icon class="text-white img" [matMenuTriggerFor]="person" id="iconSize1">person</mat-icon>
+             </button>
+       
+             <mat-menu #person="matMenu">
+               <button mat-menu-item>Edit Profile</button>
+               <button mat-menu-item routerLink="">Logout</button>
+             </mat-menu>
+           </div>
+         </div>
+       </nav>
+       
+       <!-- </mat-toolbar> -->
+     
+         <div class="page-content">
+       
+         <router-outlet></router-outlet>
+       
+
+       </div>
+       </div>
