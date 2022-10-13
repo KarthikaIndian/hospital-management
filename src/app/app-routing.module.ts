@@ -5,7 +5,7 @@ import { PatientRegisterComponent } from './pages/patient-register/patient-regis
 
 const routes: Routes = [
   {path:"",  loadChildren: () => import('./account/account.module').then(m => m.AccountModule)},
-{path:"dashboard",component:HeaderComponent ,loadChildren:()=>import('./pages/pages.module').then(m=>m.PagesModule)},
+  {path:"dashboard",component:HeaderComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)},
 // {path:"patient",component:PatientRegisterComponent}
 ];
 

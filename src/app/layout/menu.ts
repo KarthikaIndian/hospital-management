@@ -15,8 +15,8 @@ export const MENU: MenuItem[] = [
             },
              {
                 id: 2,
-                label: 'Project',
-                link: '/dashboard/project',
+                label: 'Doctor',
+                link: '/dashboard/doctor',
                 parentId: 1
             },
             
