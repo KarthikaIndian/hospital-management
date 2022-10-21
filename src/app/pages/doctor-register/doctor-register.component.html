@@ -1,0 +1,151 @@
+<h2>Doctor Register Form</h2>
+<div class="container">
+  <form class="form-horizontal" [formGroup]="registerFrom" (ngSubmit)="onSubmit()">
+    <div class="col-md-12">
+      <div class="row">
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input type="text" matInput placeholder="First Name" formControlName="firstName" [(ngModel)]="regObj.firstName"
+          [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors ||f['firstName'].touched && f['firstName'].errors }">
+          <mat-error *ngIf="submitted && f['firstName'].errors ||f['firstName'].touched && f['firstName'].errors">First name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input type="text" matInput placeholder="Last Name" formControlName="lastName" [(ngModel)]="regObj.lastName"
+          [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors ||f['lastName'].touched && f['lastName'].errors }">
+          <mat-error *ngIf="submitted && f['lastName'].errors ||f['lastName'].touched && f['lastName'].errors">
+            <mat-error *ngIf="f['lastName'].errors['required']">Name is required</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Doctor No</mat-label>
+          <input type="number" matInput placeholder="Doctor No" readonly="true" formControlName="doctorNo">
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput placeholder="Email" formControlName="email" [(ngModel)]="regObj.email"
+          [ngClass]="{ 'is-invalid': submitted && f['email'].errors ||f['email'].touched && f['email'].errors }">
+          <mat-error *ngIf="submitted && f['email'].errors  ||f['email'].touched&&f['email'].errors" class="invalid-feedback">
+              <mat-error *ngIf="f['email'].errors['required']">Email is required</mat-error>
+              <mat-error *ngIf="f['email'].errors['email']">Email must be a valid email address</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Designation</mat-label>
+          <input type="text" matInput placeholder="Designation" formControlName="designation" [(ngModel)]="regObj.designation"
+          [ngClass]="{ 'is-invalid': submitted && f['designation'].errors ||f['designation'].touched && f['designation'].errors }" >
+          <mat-error *ngIf="submitted && f['designation'].errors ||f['designation'].touched && f['designation'].errors">Designation is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input type="number" matInput placeholder="Phone Number" formControlName="phoneNo" [(ngModel)]="regObj.phoneNo"
+          [ngClass]="{ 'is-invalid': submitted && f['phoneNo'].errors ||f['phoneNo'].touched && f['phoneNo'].errors }" >
+          <mat-error *ngIf="submitted && f['phoneNo'].errors ||f['phoneNo'].touched && f['phoneNo'].errors" class="invalid-feedback">
+              <mat-error *ngIf="f['phoneNo'].errors['required']">Phone number is required </mat-error>
+               <mat-error *ngIf="f['phoneNo'].errors['pattern'] || f['phoneNo'].errors['minLength'] || f['phoneNo'].errors['maxLength']">Phone number must be at least 10 numbers</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Qualification</mat-label>
+          <input type="text" matInput placeholder="Qualification" formControlName="qualification" [(ngModel)]="regObj.qualification"
+          [ngClass]="{ 'is-invalid': submitted && f['qualification'].errors ||f['qualification'].touched && f['qualification'].errors }">
+          <mat-error *ngIf="submitted && f['qualification'].errors ||f['qualification'].touched && f['qualification'].errors">Qualification is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Certification Photo</mat-label>
+          <input matInput placeholder="Certification Photo" formControlName="certificationPhoto">
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Specialist</mat-label>
+          <input type="text" matInput placeholder="Specialist" formControlName="specialist" [(ngModel)]="regObj.specialist"
+          [ngClass]="{ 'is-invalid': submitted && f['specialist'].errors ||f['specialist'].touched && f['specialist'].errors }">
+          <mat-error *ngIf="submitted && f['specialist'].errors ||f['specialist'].touched && f['specialist'].errors">Specialist is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Clinic or Hospital</mat-label>
+          <input type="text" matInput placeholder="Clinic or Hospital" formControlName="clinicorhospital" [(ngModel)]="regObj.clinicorhospital"
+          [ngClass]="{ 'is-invalid': submitted && f['clinicorhospital'].errors ||f['clinicorhospital'].touched && f['clinicorhospital'].errors }">
+          <mat-error *ngIf="submitted && f['clinicorhospital'].errors ||f['clinicorhospital'].touched && f['clinicorhospital'].errors">Clinic or Hospital is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Photo</mat-label>
+          <input matInput placeholder="Photo" formControlName="photo" [(ngModel)]="regObj.photo">
+        </mat-form-field>
+
+        <mat-radio-group class="col-md-4 mt-3" formControlName="gender" [(ngModel)]="regObj.gender"
+        [ngClass]="{ 'is-invalid': submitted && f['gender'].errors ||f['gender'].touched && f['gender'].errors }" >
+          <mat-label class="me-2">Gender</mat-label>
+          <mat-radio-button class="me-2" value="Male">Male</mat-radio-button>
+          <mat-radio-button value="Female">Female</mat-radio-button>
+          <mat-error *ngIf="submitted && f['gender'].errors ||f['gender'].touched && f['gender'].errors">Gender is required</mat-error>
+        </mat-radio-group>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Age</mat-label>
+          <input type="number" matInput placeholder="Age" formControlName="age" [(ngModel)]="regObj.age"
+          [ngClass]="{ 'is-invalid': submitted && f['age'].errors ||f['age'].touched && f['age'].errors }">
+          <mat-error *ngIf="submitted && f['age'].errors ||f['age'].touched && f['age'].errors">Age is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Date of Birth</mat-label>
+          <input type="date" matInput placeholder="Date of Birth" formControlName="dateofbirth" [(ngModel)]="regObj.dateofbirth"
+          [ngClass]="{ 'is-invalid': submitted && f['dateofbirth'].errors ||f['dateofbirth'].touched && f['dateofbirth'].errors }">
+          <mat-error *ngIf="submitted && f['dateofbirth'].errors ||f['dateofbirth'].touched && f['dateofbirth'].errors">Date of Birth is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Marital Status</mat-label>
+          <input type="text" matInput placeholder="Marital Status" formControlName="maritalStatus" [(ngModel)]="regObj.maritalStatus"
+          [ngClass]="{ 'is-invalid': submitted && f['maritalStatus'].errors ||f['maritalStatus'].touched && f['maritalStatus'].errors }">
+          <mat-error *ngIf="submitted && f['maritalStatus'].errors ||f['maritalStatus'].touched && f['maritalStatus'].errors">Marital Status is required</mat-error> 
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Address Line1</mat-label>
+          <textarea matInput placeholder="Address Line1" formControlName="addressline1" [(ngModel)]="regObj.addressline1"
+          [ngClass]="{ 'is-invalid': submitted && f['addressline1'].errors ||f['addressline1'].touched && f['addressline1'].errors }"></textarea>
+          <mat-error *ngIf="submitted && f['addressline1'].errors ||f['addressline1'].touched && f['addressline1'].errors">Addressline1 is required</mat-error> 
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Address Line2</mat-label>
+          <textarea matInput placeholder="Address Line2" formControlName="addressline2" [(ngModel)]="regObj.addressline2"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>City</mat-label>
+          <input matInput placeholder="City" formControlName="city" [(ngModel)]="regObj.city">
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>State</mat-label>
+          <input matInput placeholder="State" formControlName="state" [(ngModel)]="regObj.state">
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4" appearance="outline">
+          <mat-label>Country</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let country of Country" [value]="country" formControlName="country"> {{country}} </mat-option>
+          </mat-select>
+          <mat-error *ngIf="registerFrom.controls['country'].errors?.['required']">
+            State is required.
+         </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
