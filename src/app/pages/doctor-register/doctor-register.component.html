@@ -1,5 +1,7 @@
-<h2>Doctor Register Form</h2>
-<div class="container">
+<div class="container-fluid px-4">
+  <h2>Doctor Register Form</h2>
+</div>
+<div class="container-fluid px-4">
   <form class="form-horizontal" [formGroup]="registerFrom" (ngSubmit)="onSubmit()">
     <div class="col-md-12">
       <div class="row">
@@ -12,7 +14,7 @@
 
         <mat-form-field class="col-md-4" appearance="outline">
           <mat-label>Last Name</mat-label>
-          <input type="text" matInput placeholder="Last Name" formControlName="lastName" [(ngModel)]="regObj.lastName"
+          <input type="text"  matInput placeholder="Last Name" formControlName="lastName" [(ngModel)]="regObj.lastName"
           [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors ||f['lastName'].touched && f['lastName'].errors }">
           <mat-error *ngIf="submitted && f['lastName'].errors ||f['lastName'].touched && f['lastName'].errors">
             <mat-error *ngIf="f['lastName'].errors['required']">Name is required</mat-error>
@@ -60,7 +62,9 @@
 
         <mat-form-field class="col-md-4" appearance="outline">
           <mat-label>Certification Photo</mat-label>
-          <input matInput placeholder="Certification Photo" formControlName="certificationPhoto">
+          <ngx-mat-file-input formControlName="certificationPhoto" placeholder="Choose File"
+          [ngClass]="{ 'is-invalid': submitted && f['certificationPhoto'].errors || f['certificationPhoto'].touched && f['certificationPhoto'].errors }">
+          </ngx-mat-file-input>
         </mat-form-field>
 
         <mat-form-field class="col-md-4" appearance="outline">
@@ -79,14 +83,16 @@
 
         <mat-form-field class="col-md-4" appearance="outline">
           <mat-label>Photo</mat-label>
-          <input matInput placeholder="Photo" formControlName="photo" [(ngModel)]="regObj.photo">
-        </mat-form-field>
+          <ngx-mat-file-input formControlName="photo" placeholder="Choose File"
+          [ngClass]="{ 'is-invalid': submitted && f['photo'].errors || f['photo'].touched && f['photo'].errors }">
+          </ngx-mat-file-input>       
+         </mat-form-field>
 
         <mat-radio-group class="col-md-4 mt-3" formControlName="gender" [(ngModel)]="regObj.gender"
         [ngClass]="{ 'is-invalid': submitted && f['gender'].errors ||f['gender'].touched && f['gender'].errors }" >
           <mat-label class="me-2">Gender</mat-label>
-          <mat-radio-button class="me-2" value="Male">Male</mat-radio-button>
-          <mat-radio-button value="Female">Female</mat-radio-button>
+          <mat-radio-button class="me-2" value="Male" [ngClass]="{ 'is-invalid': submitted && f['gender'].errors || f['gender'].touched && f['gender'].errors }">Male</mat-radio-button>
+          <mat-radio-button value="Female" [ngClass]="{ 'is-invalid': submitted && f['gender'].errors || f['gender'].touched && f['gender'].errors }">Female</mat-radio-button>
           <mat-error *ngIf="submitted && f['gender'].errors ||f['gender'].touched && f['gender'].errors">Gender is required</mat-error>
         </mat-radio-group>
 
@@ -133,7 +139,7 @@
           <input matInput placeholder="State" formControlName="state" [(ngModel)]="regObj.state">
         </mat-form-field>
 
-        <mat-form-field class="col-md-4" appearance="outline">
+        <!-- <mat-form-field class="col-md-4" appearance="outline">
           <mat-label>Country</mat-label>
           <mat-select>
             <mat-option *ngFor="let country of Country" [value]="country" formControlName="country"> {{country}} </mat-option>
@@ -141,7 +147,8 @@
           <mat-error *ngIf="registerFrom.controls['country'].errors?.['required']">
             State is required.
          </mat-error>
-        </mat-form-field>
+        </mat-form-field> -->
+
       </div>
     </div>
     <div class="d-flex justify-content-end">

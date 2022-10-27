@@ -19,7 +19,12 @@ export const MENU: MenuItem[] = [
                 link: '/dashboard/doctor',
                 parentId: 1
             },
-            
+            {
+                id: 3,
+                label: 'Patient Appiontment',
+                link: '/dashboard/patientappointment',
+                parentId: 1
+            },
             
         ]
     },

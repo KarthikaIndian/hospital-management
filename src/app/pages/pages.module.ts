@@ -9,14 +9,15 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { PatientAppointmentComponent } from './patient-appointment/patient-appointment.component';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 @NgModule({
   declarations: [   
     PatientRegisterComponent, 
     DashboardComponent,
-    DoctorRegisterComponent],
+    DoctorRegisterComponent,
+    PatientAppointmentComponent],
     
   imports: [
     CommonModule,
@@ -26,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
+    MaterialFileInputModule,
   ]
 })
 export class PagesModule { }

@@ -1,0 +1,117 @@
+<div class="container-fluid px-4">
+    <h2>Patient Appiontment Form</h2>
+  </div>
+  <div class="container-fluid px-4">
+    <form class="form-horizontal" [formGroup]="patientRegister" (ngSubmit)="onSubmit()">
+      <div class="col-md-12">
+        <div class="row">
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Doctor Id</mat-label>
+            <input type="text" matInput placeholder="Doctor Id" formControlName="doctorId" [(ngModel)]="regObj.doctorId">
+            <mat-error *ngIf="submitted && f['doctorId'].errors ||f['doctorId'].touched && f['doctorId'].errors">Doctor id is required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput placeholder="Doctor Name" formControlName="doctorName" [(ngModel)]="regObj.doctorName">
+            <mat-error *ngIf="submitted && f['doctorName'].errors ||f['doctorName'].touched && f['doctorName'].errors">
+              <mat-error *ngIf="f['doctorName'].errors['required']">Doctor name is required</mat-error>
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Doctor Sloat</mat-label>
+            <input type="number" matInput placeholder="Doctor Sloat"  formControlName="doctorSloat">
+            <mat-error *ngIf="submitted && f['doctorSloat'].errors ||f['doctorSloat'].touched && f['doctorSloat'].errors">
+                <mat-error *ngIf="f['doctorSloat'].errors['required']">Doctor sloat is required</mat-error>
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Token Number</mat-label>
+            <input type="text" matInput placeholder="Token Number" formControlName="tokenNumber" [(ngModel)]="regObj.tokenNumber">
+            <mat-error *ngIf="submitted && f['tokenNumber'].errors  ||f['tokenNumber'].touched&&f['tokenNumber'].errors" class="invalid-feedback">
+                <mat-error *ngIf="f['tokenNumber'].errors['required']">Token number is required</mat-error>
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Patient Number</mat-label>
+            <input type="text" matInput placeholder="Patient Number" formControlName="PatientNumber" [(ngModel)]="regObj.PatientNumber">
+            <mat-error *ngIf="submitted && f['PatientNumber'].errors ||f['PatientNumber'].touched && f['PatientNumber'].errors">Patient number is required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input type="number" matInput placeholder="Phone Number" formControlName="phoneNo" [(ngModel)]="regObj.phoneNo">
+            <mat-error *ngIf="submitted && f['phoneNo'].errors ||f['phoneNo'].touched && f['phoneNo'].errors" class="invalid-feedback">
+                <mat-error *ngIf="f['phoneNo'].errors['required']">Phone number is required </mat-error>
+                 <mat-error *ngIf="f['phoneNo'].errors['pattern'] || f['phoneNo'].errors['minLength'] || f['phoneNo'].errors['maxLength']">Phone number must be at least 10 numbers</mat-error>
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Alternative Mobile Number</mat-label>
+            <input type="number" matInput placeholder="Alternative Mobile Number" formControlName="alternateNo" [(ngModel)]="regObj.alternateNo">
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>New Patient</mat-label>
+            <input type="text" matInput placeholder="New Patient" formControlName="newPatient" [(ngModel)]="regObj.newPatient">
+            <mat-error *ngIf="submitted && f['newPatient'].errors ||f['newPatient'].touched && f['newPatient'].errors">New patient is required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Old Patient</mat-label>
+            <input type="text" matInput placeholder="Old Patient" formControlName="oldPatient" [(ngModel)]="regObj.oldPatient">
+            <mat-error *ngIf="submitted && f['oldPatient'].errors ||f['oldPatient'].touched && f['oldPatient'].errors">Old patient required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Consulting Fees</mat-label>
+            <input matInput placeholder="Consulting Fees" formControlName="consultFees" [(ngModel)]="regObj.consultFees">
+            <mat-error *ngIf="submitted && f['consultFees'].errors ||f['consultFees'].touched && f['consultFees'].errors">Consulting fees is required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Payment Type</mat-label>
+            <input type="number" matInput placeholder="Payment Type" formControlName="payamenttype" [(ngModel)]="regObj.payamenttype">
+            <mat-error *ngIf="submitted && f['payamenttype'].errors ||f['payamenttype'].touched && f['payamenttype'].errors">Payament type is required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Doctou Number</mat-label>
+            <input type="number" matInput placeholder="Doctor Number" formControlName="doctorNo" [(ngModel)]="regObj.doctorNo">
+            <mat-error *ngIf="submitted && f['doctorNo'].errors ||f['doctorNo'].touched && f['doctorNo'].errors">Doctor number is required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Booking Date</mat-label>
+            <input type="date" matInput placeholder="Booking Date" formControlName="bookingDate" [(ngModel)]="regObj.bookingDate">
+            <mat-error *ngIf="submitted && f['bookingDate'].errors ||f['bookingDate'].touched && f['bookingDate'].errors">Booking date is required</mat-error> 
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Address Line1</mat-label>
+            <textarea matInput placeholder="Address Line1" formControlName="addressline1" [(ngModel)]="regObj.addressline1"></textarea>
+            <mat-error *ngIf="submitted && f['addressline1'].errors ||f['addressline1'].touched && f['addressline1'].errors">Addressline1 is required</mat-error> 
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Address Line2</mat-label>
+            <textarea matInput placeholder="Address Line2" formControlName="addressline2" [(ngModel)]="regObj.addressline2"></textarea>
+          </mat-form-field>
+  
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Description" formControlName="description" [(ngModel)]="regObj.description"></textarea>
+            <mat-error *ngIf="submitted && f['description'].errors ||f['description'].touched && f['description'].errors">Description is required</mat-error> 
+          </mat-form-field>
+  
+        </div>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
